@@ -9,4 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 class Game extends Model
 {
     use HasFactory, HasUuids;
+
+    public const string KEY_ID = 'id';
 }

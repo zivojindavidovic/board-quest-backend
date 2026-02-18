@@ -18,4 +18,14 @@ class GamesRepository
                 page: $attributes['page'] ?? 1
             );
     }
+
+    /**
+     * Returns game by UUID
+     */
+    public function getOneByUUID(string $uuid): Game
+    {
+        return Game::query()
+            ->where(Game::KEY_ID, $uuid)
+            ->first();
+    }
 }
