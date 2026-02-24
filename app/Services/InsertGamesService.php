@@ -9,8 +9,8 @@ use Illuminate\Support\Str;
 final readonly class InsertGamesService
 {
     public function __construct(
-        private GetGameFromBoardGameGeekApiService $getGameFromBoardGameGeekApiService,
-        private GamesRepository                    $gamesRepository
+        private GetGamesFromBoardGameGeekApiService $getGameFromBoardGameGeekApiService,
+        private GamesRepository                     $gamesRepository
     )
     {
     }
