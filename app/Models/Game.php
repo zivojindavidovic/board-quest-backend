@@ -11,4 +11,5 @@ class Game extends Model
     use HasFactory, HasUuids;
 
     public const string KEY_ID = 'id';
+    public const string KEY_BGG_ID = 'bgg_id';
 }
