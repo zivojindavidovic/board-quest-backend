@@ -14,7 +14,7 @@ final readonly class ListOneGameService
     /**
      * Returns paginated games collection
      */
-    public function execute(string $uuid): Game
+    public function execute(string $uuid): ?Game
     {
         return $this->gamesRepository->getOneByUUID($uuid);
     }
