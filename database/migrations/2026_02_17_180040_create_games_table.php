@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedTinyInteger('max_players');
             $table->unsignedSmallInteger('play_time_minutes')->nullable();
             $table->decimal('complexity', 3, 2)->nullable();
-            $table->unsignedSmallInteger('year_published')->nullable();
+            $table->smallInteger('year_published')->nullable();
             $table->string('image_url', 500)->nullable();
             $table->unsignedInteger('bgg_id')->nullable()->unique();
             $table->decimal('avg_rating', 4, 2)->default(0);
