@@ -123,4 +123,19 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Board Game Geek API Config
+    |--------------------------------------------------------------------------
+    |
+    | These configuration provides API endpoint including API Bearer token
+    | required to use BoardGameGeek XML API
+    |
+    */
+
+    'board_game_geek' => [
+        'api_url' => env('BOARD_GAME_GEEK_API_URL'),
+        'token' => env('BOARD_GAME_GEEK_TOKEN'),
+        'token_type' => env('BOARD_GAME_GEEK_TOKEN_TYPE'),
+    ]
 ];
