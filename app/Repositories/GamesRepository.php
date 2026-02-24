@@ -22,10 +22,29 @@ class GamesRepository
     /**
      * Returns game by UUID
      */
-    public function getOneByUUID(string $uuid): Game
+    public function getOneByUUID(string $uuid): ?Game
     {
         return Game::query()
             ->where(Game::KEY_ID, $uuid)
             ->first();
+    }
+
+    /**
+     * Returns existing games by board game geek id
+     */
+    public function getManyByBGGId(array $bggIds): array
+    {
+        return Game::query()
+            ->whereIn(Game::KEY_BGG_ID, $bggIds)
+            ->pluck(Game::KEY_BGG_ID)
+            ->toArray();
+    }
+
+    /**
+     * Inserts many games
+     */
+    public function insert(array $games): bool
+    {
+        return Game::query()->insert($games);
     }
 }
