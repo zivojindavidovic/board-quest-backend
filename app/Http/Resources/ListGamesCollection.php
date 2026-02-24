@@ -2,12 +2,22 @@
 
 namespace App\Http\Resources;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class ListGamesCollection extends ResourceCollection
 {
     public $collects = ListGamesResource::class;
+
+    public function toResponse($request): JsonResponse
+    {
+        $response = parent::toResponse($request);
+        $data = ['success' => true] + $response->getData(true);
+        $response->setData($data);
+
+        return $response;
+    }
 
     public function paginationInformation(Request $request, array $paginated, array $default): array
     {
