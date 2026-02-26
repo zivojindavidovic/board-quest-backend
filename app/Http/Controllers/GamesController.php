@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ListGamesRequest;
+use App\Http\Requests\ListOneGameRequest;
 use App\Http\Resources\ListGameResource;
 use App\Http\Resources\ListGamesCollection;
 use App\Services\ListGamesService;
@@ -24,9 +25,9 @@ final class GamesController extends Controller
     /**
      * List game
      */
-    public function listByUUID(string $uuid, ListOneGameService $listOneGameService)
+    public function listByUUID(ListOneGameRequest $request, ListOneGameService $listOneGameService)
     {
-        $game = $listOneGameService->execute($uuid);
+        $game = $listOneGameService->execute($request->validated()['uuid']);
         return new ListGameResource($game);
     }
 }
