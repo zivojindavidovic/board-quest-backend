@@ -16,9 +16,7 @@ final class GamesController extends Controller
      */
     public function list(ListGamesRequest $request, ListGamesService $listGamesService)
     {
-        $attributes = $request->validated();
-        $result = $listGamesService->execute($attributes);
-
+        $result = $listGamesService->execute($request->validated());
         return new ListGamesCollection($result);
     }
 
