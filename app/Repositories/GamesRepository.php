@@ -13,6 +13,7 @@ class GamesRepository
     public function getMany(array $attributes): LengthAwarePaginator
     {
         return Game::query()
+            ->when(!empty($attributes['search']), fn($q) => $q->whereFullText(['title', 'description'], $attributes['search']))
             ->paginate(
                 perPage: $attributes['per_page'] ?? 10,
                 page: $attributes['page'] ?? 1
