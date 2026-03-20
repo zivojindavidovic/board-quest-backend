@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('clubs', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('owner_id');
+            $table->foreignUuid('user_id');
             $table->string('name');
             $table->text('description')->nullable();
             $table->string('address');
