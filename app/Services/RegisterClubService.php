@@ -113,7 +113,7 @@ final readonly class RegisterClubService
     {
         $totalWorkingHours = count($workingHours);
 
-        return $totalWorkingHours && $day === $workingHours[$totalWorkingHours - 1]['day_of_week'] && $timeRange['open_time'] < $workingHours[$totalWorkingHours - 1]['close_time'];
+        return $totalWorkingHours && $day === $workingHours[$totalWorkingHours - 1]['day_of_week'] && $timeRange['open_time'] <= $workingHours[$totalWorkingHours - 1]['close_time'];
     }
 
     /*
